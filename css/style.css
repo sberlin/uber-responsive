@@ -1,25 +1,214 @@
-.navbar {
-    margin-top: 20px;
+/* -------------------------------------------------------------------------- */
+/* -----| GENERAL |---------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+html {
+    background-color: #355664;
+    font-size: 100%;
+}
+
+body {
+    background-color: #355664;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif, Verdana;
+    font-size: .8em;
+    text-shadow: 1px 1px 1px #333;
+}
+
+.gallery-wrapper {
+    background-color: #213E4A;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 20px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 .navbar-inverse .brand {
     color: #FFF;
 }
 
-.gallery-wrapper {
+
+/* -------------------------------------------------------------------------- */
+/* -----| GALLERY LIST |----------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+.gallery-list {
+    margin: 0;
+    padding: 0 4px;
     text-align: center;
 }
 
-.gallery-wrapper li {
+.gallery-list li {
     display: inline-block;
+    list-style: none;
+    margin: 5px 6px;
+    padding: 0;
     float: none;
 }
 
+.gallery-list li a {
+    background-color: #15242A !important;
+    border-top: 1px solid #132228;
+    border-left: 1px solid #132228;
+    border-right: 1px solid #204656;
+    border-bottom: 1px solid #204656;
+    display: block;
+    padding: 4px;
+}
+
+.gallery-list li a:hover {
+    background-color: #1E2D34 !important;
+}
+
+.gallery-list li a img {
+    border: none;
+}
+/* -------------------------------------------------------------------------- */
+/* -----| GALLERY FOOTER |--------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+
+.gallery-footer {
+    border-top: none !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+    color: #FFF;
+}
+
+.gallery-footer .credit {
+    color: #FFF;
+    float: right;
+    font-size: .95em;
+    margin: 4px 0;
+}
+
+.gallery-footer .credit a {
+    color: #FFF;
+    text-decoration: underline;
+}
+
+
+/* ---------------------------------------- */
+/* ----|  PAGINATION  |-------------------- */
+/* ---------------------------------------- */
+
 .pagination {
+    color: #FFF;
+    float: left;
+    font-size: .95em;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+}
+
+.pagination li {
+    border: 1px solid transparent;
+    display: block;
+    float: left;
+    list-style: none;
+    margin-right: 1px;
+	line-height: normal;
+}
+
+.pagination li:hover {
+    background-color: #1E2D34;
+    border-top: 1px solid #132228;
+    border-left: 1px solid #132228;
+    border-right: 1px solid #204656;
+    border-bottom: 1px solid #204656;
+}
+
+.pagination li.title {
+    background: transparent url(../../../page_white_stack.png) no-repeat left center;
+    border: 1px solid transparent;
+    font-weight: normal;
+    padding: 3px 6px 3px 22px;
+}
+
+.pagination li a, .pagination li a:visited {
+    color: #FFF;
+    display: block;
+    padding: 3px 6px;
+    text-decoration: none;
+}
+
+.pagination li.current {
+    background-color: #15242A;
+    border-top: 1px solid #132228;
+    border-left: 1px solid #132228;
+    border-right: 1px solid #204656;
+    border-bottom: 1px solid #204656;
+    font-weight: bold;
+    padding: 3px 6px;
+}
+
+.pagination li.inactive {
+    background-color: transparent;
+    color: #15242A;
+    border: 1px solid transparent;
+    display: block;
+    padding: 3px 6px;
+}
+
+
+/* ---------------------------------------- */
+/* ----|  SYSTEM MESSAGES  |--------------- */
+/* ---------------------------------------- */
+
+.system-messages {
     margin: 0;
 }
 
-.credit {
-    margin: 9px 0;
+.system-messages li {
+    background-color: #FFF;
+    line-height: 1.4em;
+    list-style: none;
+    margin-bottom: 10px;
+    padding: 5px;
     text-align: center;
+    text-shadow: none;
+}
+
+.system-messages li.notice {
+    background-color: #CCF;
+}
+
+.system-messages li.success {
+    background-color: #CFC;
+}
+
+.system-messages li.error {
+    background-color: #FCC;
+}
+
+
+/* ---------------------------------------- */
+/* ----|  MISCELLANEOUS  |----------------- */
+/* ---------------------------------------- */
+
+.line {
+    background-color: #24404C;
+    border-bottom: 1px solid #416371;
+    height: 1px;
+    margin: 2em 0;
+    overflow: hidden;
+}
+
+.gallery-wrapper .line {
+    background-color: #15242A;
+    border-bottom-color: #204656;
+    margin: 10px 0;
+}
+
+#cboxWrapper {
+    text-shadow: none !important;
+}
+
+#cboxCurrent {
+    display: none !important;
+}
+
+#cboxTitle {
+    font-size: 1em !important;
 }
