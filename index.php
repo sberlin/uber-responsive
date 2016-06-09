@@ -4,7 +4,7 @@
 <head>
     <title>UberGallery</title>
 
-    <link rel="shortcut icon" href="<?php echo THEMEPATH; ?>/img/favicon.png" />
+    <link rel="shortcut icon" href="<?php echo THEMEPATH; ?>/images/favicon.png" />
 
     <link rel="stylesheet" type="text/css" href="<?php echo THEMEPATH; ?>/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo THEMEPATH; ?>/css/style.css" />
@@ -23,7 +23,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="container gallery-wrapper">
 
         <div class="navbar navbar-inverse">
             <div class="navbar-inner">
@@ -34,71 +34,52 @@
         </div>
 
         <?php if($gallery->getSystemMessages()): ?>
-            <?php foreach($gallery->getSystemMessages() as $message): ?>
-                <div class="alert alert-<?php echo $message['type']; ?>">
-                    <a class="close" data-dismiss="alert">×</a>
-                    <?php echo $message['text']; ?>
-                </div>
-            <?php endforeach; ?>
+        	<div class="system-messages">
+		        <?php foreach($gallery->getSystemMessages() as $message): ?>
+		            <div class="alert alert-<?php echo $message['type']; ?>">
+		                <a class="close" data-dismiss="alert">×</a>
+		                <?php echo $message['text']; ?>
+		            </div>
+		        <?php endforeach; ?>
+			</div>
         <?php endif; ?>
 
         <!-- Start UberGallery v<?php echo UberGallery::VERSION; ?> - Copyright (c) <?php echo date('Y'); ?> Chris Kankiewicz (http://www.ChrisKankiewicz.com) -->
-        <?php if (!empty($galleryArray) && $galleryArray['stats']['total_images'] > 0): ?>
-            <ul class="gallery-wrapper thumbnails">
-                <?php foreach ($galleryArray['images'] as $image): ?>
-                    <li class="">
-                        <a href="<?php echo html_entity_decode($image['file_path']); ?>" title="<?php echo $image['file_title']; ?>" class="thumbnail" rel="colorbox">
-                            <img src="<?php echo $image['thumb_path']; ?>" alt="<?php echo $image['file_title']; ?>" />
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        <?php endif; ?>
+		<div class="gallery-list-wrapper">
+		    <?php if (!empty($galleryArray) && $galleryArray['stats']['total_images'] > 0): ?>
+		        <ul class="gallery-list thumbnails">
+		            <?php foreach ($galleryArray['images'] as $image): ?>
+		                <li class="">
+		                    <a href="<?php echo html_entity_decode($image['file_path']); ?>" title="<?php echo $image['file_title']; ?>" class="thumbnail" rel="colorbox">
+		                        <img src="<?php echo $image['thumb_path']; ?>" alt="<?php echo $image['file_title']; ?>" />
+		                    </a>
+		                </li>
+		            <?php endforeach; ?>
+		        </ul>
+		    <?php endif; ?>
+		</div>
         <!-- End UberGallery - Distributed under the MIT license: http://www.opensource.org/licenses/mit-license.php -->
 
-        <hr/>
+        <div class="line"></div>
 
+    	<div class="gallery-footer" class="clearfix">
+			<?php if ($galleryArray['stats']['total_pages'] > 1): ?>
 
-        <?php if ($galleryArray['stats']['total_pages'] > 1): ?>
+				<ul class="pagination">
+					<?php foreach ($galleryArray['paginator'] as $item): ?>
 
-            <div class="pagination pagination-centered">
-                <ul>
-                    <?php foreach ($galleryArray['paginator'] as $item): ?>
+				        <li class="<?php echo $item['class']; ?>">
+				            <?php if (!empty($item['href'])): ?>
+				                <a href="<?php echo $item['href']; ?>"><?php echo $item['text']; ?></a>
+				            <?php else: ?><?php echo $item['text']; ?><?php endif; ?>
+				        </li>
 
-                        <?php
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
 
-                            switch ($item['class']) {
-
-                                case 'title':
-                                    $class = 'disabled';
-                                    break;
-
-                                case 'inactive':
-                                    $class = 'disabled';
-                                    break;
-
-                                case 'current':
-                                    $class = 'active';
-                                    break;
-
-                                case 'active':
-                                    $class = NULL;
-                                    break;
-
-                            }
-
-                        ?>
-
-                        <li class="<?php echo $class; ?>">
-                            <a href="<?php echo empty($item['href']) ? '#' : $item['href']; ?>"><?php echo $item['text']; ?></a>
-                        </li>
-
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif; ?>
-
-        <p class="credit">Powered by, <a href="http://www.ubergallery.net">UberGallery</a></p>
+			<div class="credit">Powered by, <a href="http://www.ubergallery.net">UberGallery</a></div>
+		</div>
 
     </div>
 
