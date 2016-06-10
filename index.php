@@ -2,7 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>UberGallery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title><?php echo $gallery->getTitle(); ?></title>
 
     <link rel="shortcut icon" href="<?php echo THEMEPATH; ?>/images/favicon.png" />
 
@@ -15,9 +18,6 @@
     <script type="text/javascript" src="<?php echo THEMEPATH; ?>/js/bootstrap.min.js"></script>
     <?php echo $gallery->getColorboxScripts(); ?>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <?php file_exists('googleAnalytics.inc') ? include('googleAnalytics.inc') : false; ?>
 </head>
 
@@ -28,7 +28,7 @@
         <div class="navbar navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
-                    <div class="brand">UberGallery</div>
+                    <div class="brand"><?php echo $gallery->getTitle(); ?></div>
                 </div>
             </div>
         </div>
@@ -73,7 +73,6 @@
 				                <a href="<?php echo $item['href']; ?>"><?php echo $item['text']; ?></a>
 				            <?php else: ?><?php echo $item['text']; ?><?php endif; ?>
 				        </li>
-
 					<?php endforeach; ?>
 				</ul>
 			<?php endif; ?>
