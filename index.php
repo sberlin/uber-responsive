@@ -62,7 +62,7 @@
 
         <div class="line"></div>
 
-    	<div class="gallery-footer" class="clearfix">
+    <div class="gallery-footer" class="clearfix">
 			<?php if ($galleryArray['stats']['total_pages'] > 1): ?>
 
 				<ul class="pagination">
@@ -78,6 +78,7 @@
 			<?php endif; ?>
 
 			<div class="credit">Powered by, <a href="http://www.ubergallery.net">UberGallery</a></div>
+      <div class="download-all"><a href="?z">Download All</a></div>
 		</div>
 
     </div>

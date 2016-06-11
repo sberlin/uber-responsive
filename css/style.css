@@ -76,16 +76,30 @@ body {
     color: #FFF;
 }
 
-.gallery-footer .credit {
+.gallery-footer .credit,
+.gallery-footer .download-all {
     color: #FFF;
     float: right;
     font-size: .95em;
     margin: 4px 0;
 }
 
-.gallery-footer .credit a {
+.gallery-footer .credit a,
+.gallery-footer .download-all a {
     color: #FFF;
     text-decoration: underline;
+}
+
+.gallery-footer > * {
+    width: calc(100% / 3);
+}
+
+.gallery-footer .credit {
+    text-align: right;
+}
+
+.gallery-footer .download-all {
+    text-align: center;
 }
 
 
